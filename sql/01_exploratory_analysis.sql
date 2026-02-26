@@ -19,7 +19,7 @@ SELECT
     Contract,
     COUNT(customerID) AS total_customers, 
     SUM(is_churned) AS churned_customers, 
-    CAST((SUM(is_churned) * 100.0 ) / COUNT(customerID) AS DECIMAL(5,2)) , '%' AS churn_rate_pct
+    CAST((SUM(is_churned) * 100.0 ) / COUNT(customerID) AS DECIMAL(5,2)) AS churn_rate_pct
 FROM 
     silver_churn_contract
 GROUP BY 
@@ -50,7 +50,7 @@ SELECT
     tenure_bucket,
     COUNT(customerID) AS total_customers, 
     SUM(is_churned) AS churned_customers, 
-    CAST((SUM(is_churned) * 100.0 ) / COUNT(customerID) AS DECIMAL(5,2)) , '%' AS churn_rate_pct
+    CAST((SUM(is_churned) * 100.0 ) / COUNT(customerID) AS DECIMAL(5,2))  AS churn_rate_pct
 FROM 
     silver_churn_tenure
 GROUP BY 
