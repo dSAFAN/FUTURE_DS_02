@@ -17,7 +17,8 @@ SELECT
     END AS tenure_bucket,
     TRIM(PhoneService) AS PhoneService,
     TRIM(MultipleLines) AS MultipleLines,
-    TRIM(InternetService) AS InternetService,
+    CASE WHEN TRIM(InternetService) = 'No' THEN 'No internet service'
+         ELSE TRIM(InternetService) END AS InternetService,
     TRIM(OnlineSecurity) AS OnlineSecurity,
     TRIM(OnlineBackup) AS OnlineBackup,
     TRIM(DeviceProtection) AS DeviceProtection,
